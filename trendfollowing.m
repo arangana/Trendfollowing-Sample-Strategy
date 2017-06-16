@@ -13,8 +13,8 @@ nMarkets = size(CLOSE,2);
 periodLonger   = 200; %#[150:10:200]#
 periodShorter = 40;  %#[20:5:60]#
 
-smaLongerPeriod   = sum(CLOSE(end-periodLonger+1:end,:)) / periodLonger;
-smaShorterPeriod = sum(CLOSE(end-periodShorter+1:end,:)) / periodShorter;
+smaLongerPeriod   = nansum(CLOSE(end-periodLonger+1:end,:)) / periodLonger;
+smaShorterPeriod = nansum(CLOSE(end-periodShorter+1:end,:)) / periodShorter;
 
 long = smaShorterPeriod >= smaLongerPeriod;
 
